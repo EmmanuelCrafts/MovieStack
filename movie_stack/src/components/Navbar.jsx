@@ -7,6 +7,7 @@ import avatar from"../assets/image-avatar.png"
 
 const Navbar = () => {
  return (
+
     <div className="bg-blue-900 md:pt-6">
        <nav className="flex justify-between  bg-blue-950 px-[17px] py-[17px] items-center md:w-[720px] 
           md:h-18 md:px-[21px]  md:mx-auto md:rounded-xl md:py-[21px] lg:flex-col
@@ -26,13 +27,13 @@ const Navbar = () => {
       </li>
       <li>
         <img src={bookmarkIcon} alt="Bookmarks" className="w-[14px] md:w-[16.96px] md:h-5"/>
-      </li>
+      </li> 
     </ul>
     <div className="lg:mt-[515px]">
       <img src={avatar} alt="User Avatar" className="w-6 h-6 md:h-8 md:w-8 lg:w-[40px] lg:h-[40px]"/>
     </div>
   </nav>
-
+  
     </div>
 
  );
