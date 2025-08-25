@@ -8,8 +8,8 @@ import avatar from"../assets/image-avatar.png"
 const Navbar = () => {
  return (
 
-    <div className="bg-blue-900 md:pt-6">
-       <nav className="flex justify-between  bg-blue-950 px-[17px] py-[17px] items-center md:w-[720px] 
+    <div className="md:pt-6">
+       <nav className="flex justify-between  bg-blue-900 px-[17px] py-[17px] items-center md:w-[720px] 
           md:h-18 md:px-[21px]  md:mx-auto md:rounded-xl md:py-[21px] lg:flex-col
            lg:ml-8 lg:w-24 lg:h-240 lg:px-7 lg:py-8 lg:rounded-[20px] ">
     <div className="">
