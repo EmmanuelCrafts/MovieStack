@@ -1,5 +1,7 @@
 import { buildUrl } from "./api";
 import { useQuery } from "@tanstack/react-query";
+import iconMovies from "../assets/icon-nav-movies.svg"
+import iconSeries from"../assets/icon-nav-tv-series.svg"
 
 const Trending = () => {
   const url = buildUrl('/trending/all/week');
@@ -18,6 +20,22 @@ const Trending = () => {
             <div key={item.id}>
                 <img src={`https://image.tmdb.org/t/p/w342${item.backdrop_path}`} alt={item.title || item.name} className="w-[240px]  h-[140px] rounded-lg" />
                 <h3>{item.title || item.name}</h3>
+                 <p>{item.release_date ? item.release_date.slice(0, 4) : "N/A"}</p>
+                {item.media_type === "movie" ? (
+                   <div>
+                    <ul>
+                      <li>Movie</li>
+                      <li><img src={iconMovies} alt="Movie Icon" className="w-4 h-4 " /></li>
+                    </ul>
+                  </div>
+                ) : item.media_type === "tv" ? (
+                   <div>
+                     <ul>
+                      <li>TV Series</li>
+                      <li><img src={iconSeries} alt="TV Series Icon" className="w-4 h-4 inline" /></li>
+                    </ul>
+                   </div>
+                ) : null}
             </div>
         ))}     
     </div>
