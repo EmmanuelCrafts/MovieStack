@@ -13,29 +13,32 @@ const Trending = () => {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
+  
 
   return (
     <div>
-        <h2>Trending</h2>
-          <div className='mx-2'>
+        
+        <h2 className=" text-white/90 text-xl font-bold my-4 h-6 ml-4">Trending</h2>
+          <div className='mx-4 flex gap-4 overflow-x-scroll  scroll-smooth   no-scrollbar'>
              {data.results.map(item => (
-              <div key={item.id} className=" mb-4 w-[240px]  relative ">
+              <div key={item.id} className=" mb-4 w-[240px]   flex-shrink-0 relative ">
                 <img src={`https://image.tmdb.org/t/p/w342${item.backdrop_path}`} alt={item.title || item.name} className=" w-[240px]  h-[140px]  rounded-lg"/>
                 <div className="absolute top-1 right-2 w-8 h-8 bg-blue-950/50 rounded-full flex items-center justify-center ">
                    <img src={iconBookmark} alt="Bookmark Icon" className=" w-[11.67px] h-[14px]" />
                 </div>
-                <div className=" text-white/56 pt-1"  > 
+                <div className=" text-white/56 pt-1 "> 
                 {item.media_type === "movie" ? (
                    <div className="flex items-center  h-[15px] gap-2 text-sm mb-1" >
-                     <p>{item.release_date ? item.release_date.slice(0, 4) : "N/A"}</p>
-                    <ul className="flex gap-2 items-center">
-                      <li className=""><img src={iconMovies} alt="Movie Icon" className="w-3 h-3 text-white/75" /></li>
+                     <p>{item.release_date ? item.release_date.slice(0, 4) : item.first_air_date ? item.first_air_date.slice(0, 4)  : "N/A"}</p>
+                    <ul className="flex gap-2 items-center justify-center">
+                      <li className=""><img src={iconMovies} alt="Movie Icon" className="w-3 h-3" /></li>
                       <li>Movie</li>
                     </ul>
                   </div>
                 ) : item.media_type === "tv" ? (
-                   <div className="flex items-center h-[15px] gap-2 text-sm mb-1" >
-                     <ul className="flex items-center gap-2">
+                   <div className="flex items-center  h-[15px] gap-2 text-sm mb-1" >
+                      <p>{item.first_air_date ? item.first_air_date.slice(0, 4) : item.release_date ? item.release_date.slice(0, 4) : "N/A"}</p>
+                     <ul className="flex items-center  gap-2">
                       <li><img src={iconSeries} alt="TV Series Icon" className=" w-3 h-3" /></li>
                       <li>TV Series</li>
                     </ul>

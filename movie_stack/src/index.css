@@ -9,3 +9,12 @@
     /* custom red */
     --color-red-500: #FC4747;
 }
+
+/* utility to hide scrollbars but keep scrolling enabled */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and old Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
