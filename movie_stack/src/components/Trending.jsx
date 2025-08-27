@@ -2,6 +2,7 @@ import { buildUrl } from "./api";
 import { useQuery } from "@tanstack/react-query";
 import iconMovies from "../assets/icon-nav-movies.svg"
 import iconSeries from"../assets/icon-nav-tv-series.svg"
+import iconBookmark from"../assets/icon-bookmark-empty.svg"
 
 const Trending = () => {
   const url = buildUrl('/trending/all/week');
@@ -16,28 +17,37 @@ const Trending = () => {
   return (
     <div>
         <h2>Trending</h2>
-        {data.results.map(item => (
-            <div key={item.id}>
-                <img src={`https://image.tmdb.org/t/p/w342${item.backdrop_path}`} alt={item.title || item.name} className="w-[240px]  h-[140px] rounded-lg" />
-                <h3>{item.title || item.name}</h3>
-                 <p>{item.release_date ? item.release_date.slice(0, 4) : "N/A"}</p>
+          <div className='mx-2'>
+             {data.results.map(item => (
+              <div key={item.id} className=" mb-4 w-[240px]  relative ">
+                <img src={`https://image.tmdb.org/t/p/w342${item.backdrop_path}`} alt={item.title || item.name} className=" w-[240px]  h-[140px]  rounded-lg"/>
+                <div className="absolute top-1 right-2 w-8 h-8 bg-blue-950/50 rounded-full flex items-center justify-center ">
+                   <img src={iconBookmark} alt="Bookmark Icon" className=" w-[11.67px] h-[14px]" />
+                </div>
+                <div className=" text-white/56 pt-1"  > 
                 {item.media_type === "movie" ? (
-                   <div>
-                    <ul>
+                   <div className="flex items-center  h-[15px] gap-2 text-sm mb-1" >
+                     <p>{item.release_date ? item.release_date.slice(0, 4) : "N/A"}</p>
+                    <ul className="flex gap-2 items-center">
+                      <li className=""><img src={iconMovies} alt="Movie Icon" className="w-3 h-3 text-white/75" /></li>
                       <li>Movie</li>
-                      <li><img src={iconMovies} alt="Movie Icon" className="w-4 h-4 " /></li>
                     </ul>
                   </div>
                 ) : item.media_type === "tv" ? (
-                   <div>
-                     <ul>
+                   <div className="flex items-center h-[15px] gap-2 text-sm mb-1" >
+                     <ul className="flex items-center gap-2">
+                      <li><img src={iconSeries} alt="TV Series Icon" className=" w-3 h-3" /></li>
                       <li>TV Series</li>
-                      <li><img src={iconSeries} alt="TV Series Icon" className="w-4 h-4 inline" /></li>
                     </ul>
                    </div>
                 ) : null}
-            </div>
-        ))}     
+                <h3 className=" text-white/85 text-lg font-semibold">{item.title || item.name}</h3>  
+                </div>
+            
+              </div>
+             ))} 
+          </div>
+           
     </div>
   )
 }
