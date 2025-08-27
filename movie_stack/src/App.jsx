@@ -6,7 +6,7 @@ import Trending from './components/Trending'
 function App() {
   return (
     <>
-    <div className='bg-blue-950 h-screen'>
+    <div className='bg-blue-950 h-screen '>
       <Navbar />
       <SearchBar />
       <Trending />
