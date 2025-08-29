@@ -34,10 +34,10 @@ const Recommended = () => {
     <div>
         
         <h2 className=" text-white text-xl font-bold my-4 h-6 ml-4 md:mx-[25px]">Recommended for you</h2>
-          <div className='mx-4 md:mx-[25px] grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  grid '>
+          <div className='mx-4 md:mx-[25px] grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  grid  gap-6 '> 
              {shuffled.map(item => (
-              <div key={item.id} className=" mb-4 w-[224px] md:w-[252px]  lg:w-[434px] relative ">
-                <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt={item.title || item.name} className=" w-[224px]  h-[144px]   md:w-[252px] lg:w-[434px]  lg:h-[214px] rounded-lg "/>
+              <div key={item.id} className=" mb-4  relative ">
+                <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt={item.title || item.name} className=" w-full h-auto rounded-lg "/>
                 <div className="absolute top-1 right-2 w-8 h-8 bg-blue-950/50 rounded-full flex items-center justify-center ">
                    <img src={iconBookmark} alt="Bookmark Icon" className=" w-[11.67px] h-[14px]" />
                 </div>
