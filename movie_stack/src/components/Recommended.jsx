@@ -33,8 +33,8 @@ const Recommended = () => {
   return (
     <div>
         
-        <h2 className=" text-white text-xl font-bold my-4 h-6 ml-4 md:mx-[25px]">Recommended for you</h2>
-          <div className='mx-4 md:mx-[25px] grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  grid  gap-6 '> 
+        <h2 className=" text-white text-xl font-bold my-4 h-6 ml-4 mb-5 md:mx-[25px]">Recommended for you</h2>
+          <div className='mx-4 md:mx-[25px] grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-8 md:gap-x-8 grid  gap-6 '> 
              {shuffled.map(item => (
               <div key={item.id} className=" mb-4  relative ">
                 <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt={item.title || item.name} className=" w-full h-auto rounded-lg "/>

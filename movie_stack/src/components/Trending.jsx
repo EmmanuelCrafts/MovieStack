@@ -18,7 +18,7 @@ const Trending = () => {
   return (
     <div>
         
-        <h2 className=" text-white text-xl font-bold my-4 h-6 ml-4 md:mx-[25px]">Trending</h2>
+        <h2 className=" text-white text-xl font-bold my-5  h-6 ml-4 md:mx-[25px]">Trending</h2>
           <div className='mx-4 md:mx-[25px] flex gap-4   md:gap-6 overflow-x-scroll  scroll-smooth   no-scrollbar'>
              {data.results.map(item => (
               <div key={item.id} className=" mb-4 w-[240px] md:w-[470px] flex-shrink-0 relative ">
