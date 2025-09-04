@@ -4,6 +4,7 @@ import tvIcon from"../assets/icon-nav-tv-series.svg"
 import bookmarkIcon from"../assets/icon-nav-bookmark.svg"
 import logoIcon from"../assets/logo.svg"
 import avatar from"../assets/image-avatar.png"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
  return (
@@ -17,16 +18,24 @@ const Navbar = () => {
     </div>
     <ul className="flex items-center lg:flex-col  gap-[24px] lg:mt-[6px]   lg:h-[200px]  lg:justify-between lg:mt-[97.6px]">
       <li>
-        <img src={homeIcon} alt="Home" className="w-[16px] h-[16px] md:w-5 md:h-5"/>
+        <Link to="/">
+            <img src={homeIcon} alt="Home" className="w-[16px] h-[16px] md:w-5 md:h-5"/>
+        </Link>
       </li>
       <li>
+        <Link to="/movies">
         <img src={moviesIcon} alt="Movies" className="w-4 h-4 md:w-5 md:h-5"/>
+        </Link>
       </li>
       <li>    
+         <Link to="/tv-series">
         <img src={tvIcon} alt="TV Series" className="w-4 h-4 md:w-5 md:h-5" />
+          </Link>
       </li>
       <li>
+         <Link to="/bookmarks">
         <img src={bookmarkIcon} alt="Bookmarks" className="w-[14px] md:w-[16.96px] md:h-5"/>
+          </Link>
       </li> 
     </ul>
     <div className="lg:mt-[515px]">
