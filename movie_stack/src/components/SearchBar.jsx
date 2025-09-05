@@ -1,5 +1,5 @@
 import search from "../assets/icon-search.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { buildUrl } from "./api";
 import iconMovies from "../assets/icon-nav-movies.svg"
 import iconSeries from"../assets/icon-nav-tv-series.svg"
@@ -8,12 +8,16 @@ import iconBookmark from"../assets/icon-bookmark-empty.svg"
 export default function SearchBar() {
     const[query, setQuery] = useState('');
     const[results, setResults] = useState([]);
+    const[error, setError] = useState(null);
     
+    useEffect(() => {
+      if (query === "") {
+        setResults([]);
+      }
+    }, [query]);
     
     const handleSearch = async (e) => {
       e.preventDefault();
-      if (!query) return;
-
        try {
            const url = buildUrl('/search/multi', `query=${encodeURIComponent(query)}`);
            console.log("Fetching:", url);
@@ -24,9 +28,8 @@ export default function SearchBar() {
         }
         const data = await response.json();
         setResults(data.results || []);
-       } catch (error) {
-          console.error("Error fetching search results:", error);
-          setResults([]);
+       } catch (err) {
+          setError("Error fetching search results:", err.message);
        }
       
       
@@ -55,10 +58,10 @@ export default function SearchBar() {
           src={
             item.backdrop_path 
               ? `https://image.tmdb.org/t/p/w500${item.backdrop_path}`
-              : "https://dummyimage.com/300.png/09f/fff&text=No+Image"
+              : "https://dummyimage.com/500x281/09f/fff&text=No+Image"
             } 
           alt={item.title || item.name} 
-          className="w-full h-auto rounded-lg" 
+          className="w-full h-auto text-white rounded-lg" 
         />
         
         <div className="absolute top-1 right-2 w-8 h-8 bg-blue-950/50 rounded-full flex items-center justify-center">
