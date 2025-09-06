@@ -35,7 +35,7 @@ export default function SearchBar({placeholder}) {
          }
   return (
     <div>
-      <div className=" flex items-center ml-4 mt-6 gap-4 h-8  w-[254px] md:w-[377px] md:mx-[25px]">
+      <div className=" flex items-center ml-4 mt-6 gap-4   w-[90%] md:w-[377px] md:mx-[25px]">
         <img src={search} alt="search icon" className="w-6 "/>
           <form onSubmit={handleSearch}>
              <input 
@@ -44,7 +44,7 @@ export default function SearchBar({placeholder}) {
               value={query}
               onChange={(e) =>setQuery(e.target.value)}
               placeholder={placeholder}
-             className=" w-[214px] md:w-[321px] text-white placeholder:text-white placeholder:opacity-[49.79%] md:placeholder:text-lg"
+             className="  w-[388px] py-1 px-1 text-white placeholder:text-white placeholder:opacity-[49.79%] md:placeholder:text-lg focus:outline-none border-0 focus:border-b  focus:border-blue-500"
              />
         </form>
       </div>
