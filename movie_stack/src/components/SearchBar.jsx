@@ -1,11 +1,11 @@
 import search from "../assets/icon-search.svg";
 import { useEffect, useState } from "react";
-import { buildUrl } from "./api";
 import iconMovies from "../assets/icon-nav-movies.svg"
 import iconSeries from"../assets/icon-nav-tv-series.svg"
 import iconBookmark from"../assets/icon-bookmark-empty.svg"
+import { buildUrl } from "./api";
 
-export default function SearchBar() {
+export default function SearchBar({placeholder}) {
     const[query, setQuery] = useState('');
     const[results, setResults] = useState([]);
     const[error, setError] = useState(null);
@@ -16,25 +16,23 @@ export default function SearchBar() {
       }
     }, [query]);
     
-    const handleSearch = async (e) => {
-      e.preventDefault();
-       try {
-           const url = buildUrl('/search/multi', `query=${encodeURIComponent(query)}`);
-           console.log("Fetching:", url);
 
-           const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setResults(data.results || []);
-       } catch (err) {
-          setError("Error fetching search results:", err.message);
-       }
-      
-      
-    }
-
+     const handleSearch = async (e) => {
+           e.preventDefault();
+            try {
+                const url = buildUrl('/search/multi', `query=${encodeURIComponent(query)}`);
+                console.log("Fetching:", url);
+     
+                const response = await fetch(url);
+             if (!response.ok) {
+               throw new Error(`HTTP error! status: ${response.status}`);
+             }
+             const data = await response.json();
+             setResults(data.results || []);
+            } catch (err) {
+               setError("Error fetching search results:", err.message);
+            }
+         }
   return (
     <div>
       <div className=" flex items-center ml-4 mt-6 gap-4 h-8  w-[254px] md:w-[377px] md:mx-[25px]">
@@ -45,7 +43,7 @@ export default function SearchBar() {
               name="search"
               value={query}
               onChange={(e) =>setQuery(e.target.value)}
-              placeholder="Search for movies or TV series" 
+              placeholder={placeholder}
              className=" w-[214px] md:w-[321px] text-white placeholder:text-white placeholder:opacity-[49.79%] md:placeholder:text-lg"
              />
         </form>

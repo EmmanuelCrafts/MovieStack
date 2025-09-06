@@ -9,7 +9,7 @@ const HomePage = () => {
             <Navbar />
          </aside>
          <main className='overflow-x-auto  flex flex-col pb-4'>
-            <SearchBar />
+            <SearchBar placeholder='Search for Movies'/>
             <PopularMovies />
          </main>
       </div>

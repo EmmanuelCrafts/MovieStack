@@ -3,14 +3,14 @@ import SearchBar from '../components/SearchBar'
 import Trending from '../components/Trending'
 import Recommended from '../components/Recommended'
 
-const HomePage = () => {
+const HomePage = () => {  
   return (
       <div className=" min-h-screen grid lg:grid-cols-[96px_1fr] grid-cols-1 gap-y-4 lg:gap-x-8 lg:py-4"> 
          <aside className='lg:sticky lg:top-0 lg:pb-4 lg:max-h-min '>
             <Navbar />
          </aside>
          <main className='overflow-x-auto  flex flex-col pb-4'>
-            <SearchBar />
+            <SearchBar placeholder='Search for Movies or TV series'/>
             <Trending />
             <Recommended />
          </main>

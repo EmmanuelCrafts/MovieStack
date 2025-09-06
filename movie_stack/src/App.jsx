@@ -12,7 +12,6 @@ function App() {
       <Route path='/' element={<HomePage />} />
       <Route path='/movies' element={<MoviesPage />} />
       <Route path='/tv-series' element={<TvSeriesPage />} />
-      <Route path='/bookmarks' element={<div>Bookmarks Page</div>} />
       <Route path='*' element={<div>404 Not Found</div>} />
     </Routes>
     </div>
