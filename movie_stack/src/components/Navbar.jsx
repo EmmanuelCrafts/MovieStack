@@ -1,7 +1,6 @@
 import homeIcon from"../assets/icon-nav-home.svg"
 import moviesIcon from"../assets/icon-nav-movies.svg"   
 import tvIcon from"../assets/icon-nav-tv-series.svg"
-import bookmarkIcon from"../assets/icon-nav-bookmark.svg"
 import logoIcon from"../assets/logo.svg"
 import avatar from"../assets/image-avatar.png"
 import { Link } from "react-router-dom"
@@ -32,11 +31,7 @@ const Navbar = () => {
         <img src={tvIcon} alt="TV Series" className="w-4 h-4 md:w-5 md:h-5" />
           </Link>
       </li>
-      <li>
-         <Link to="/bookmarks">
-        <img src={bookmarkIcon} alt="Bookmarks" className="w-[14px] md:w-[16.96px] md:h-5"/>
-          </Link>
-      </li> 
+
     </ul>
     <div className="lg:mt-[515px]">
       <img src={avatar} alt="User Avatar" className="w-6 h-6 md:h-8 md:w-8 lg:w-[40px] lg:h-[40px]"/>
