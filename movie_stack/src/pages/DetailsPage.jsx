@@ -20,13 +20,13 @@ const DetailsPage = () => {
     if (isLoading) return <Spinner />
     if (error) return <p>Error: {error.message}</p>
   return (
-    <div className="flex">
+    <div className="lg:flex">
          <aside className='lg:sticky lg:top-0 lg:pb-4 lg:max-h-min '>
             <Navbar />
          </aside>
-       <main className=" lg:mt-4 rounded-2xl lg:mb-8 mb-4 relative bg-center bg-cover lg:w-[90%] lg:mx-auto min-h-screen " 
+       <main className=" lg:mt-4 lg:rounded-2xl lg:mb-8  relative bg-center bg-cover lg:w-[90%] lg:mx-auto min-h-screen " 
             style={{
-                   backgroundImage: `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path})`,
+                   backgroundImage: `url(https://image.tmdb.org/t/p/w780${data.backdrop_path})`,
             }}
        >
         {/* Dark overlay */}
@@ -35,7 +35,7 @@ const DetailsPage = () => {
           className="text-white flex flex-col gap-4 relative z-20"
          >
           <div className="relative">
-               <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt={data.title || data.name} className="  ml-4 mt-2  w-[70%]   h-[500px] md:mt-4 md:h-[650px] md:h-[230px] md:w-[470px] rounded-lg "/>
+               <img src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt={data.title || data.name} loading="lazy" className="  ml-4 mt-2  w-[70%]   h-[500px] md:mt-4 md:h-[650px] md:h-[230px] md:w-[470px] rounded-lg "/>
                <div className="text-white absolute bg-black/60 top-4 md:right-[40%] lg:right-[72%] md:top-5 right-[30%] rounded-full px-3 py-3">
                 {data.vote_average && (
                   <span>{data.vote_average.toFixed(1)} / 10</span>
