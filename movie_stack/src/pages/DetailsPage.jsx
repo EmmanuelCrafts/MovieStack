@@ -16,7 +16,11 @@ const DetailsPage = () => {
       },
     });
 
-    if (isLoading) return <p>Loading...</p>
+    if (isLoading) return (
+    <div className="flex items-center justify-center  h-screen">
+      <div className="animate-spin rounded-full h-10 w-10 border-blue-500 border-t-2 border-b-2 rounded-full"></div>
+    </div>
+  )
     if (error) return <p>Error: {error.message}</p>
   return (
     <div>
@@ -44,11 +48,11 @@ const DetailsPage = () => {
           <div  className="w-[90%] ">
             <h1 className="ml-4 font-extrabold text-2xl py-1 opacity-80">Title: {data.title || data.name}</h1>
            
-            <div className="flex gap-2 ml-4">
+            <div className="flex gap-2 ml-4 ">
               {data.genres?.map((item) => (
                 <span
                   key={item.id}
-                  className="bg-gray-800 px-3 py-1 rounded-full text-sm"
+                  className="bg-gray-800 px-2 py-2 px-1 rounded-full text-sm"
                 > {item.name}
                 </span>
               ))}
