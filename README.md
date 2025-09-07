@@ -22,5 +22,3 @@ Users can browse trending content, view details (Titles,Overview, Language), and
 - TailwindCSS (styling)
 - TMDb API (movie & TV data)
 - Netlify (deployment)
-
--
