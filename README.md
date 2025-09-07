@@ -4,6 +4,9 @@ A React-based web application for exploring movies and TV series, built as a cap
 Users can browse trending content, view details (Titles,Overview, Language), and enjoy a smooth, responsive UI.
 
 ---
+##  Live Demo
+Check out the live version here: [Movie Stack on Netlify](https://68bdfc17a78afcd571a3b7e2--movie-stack1.netlify.app/)
+
 
 ## Features
 - Search movies and TV series
