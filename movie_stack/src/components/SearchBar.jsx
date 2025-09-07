@@ -2,7 +2,6 @@ import search from "../assets/icon-search.svg";
 import { useEffect, useState } from "react";
 import iconMovies from "../assets/icon-nav-movies.svg"
 import iconSeries from"../assets/icon-nav-tv-series.svg"
-import iconBookmark from"../assets/icon-bookmark-empty.svg"
 import { buildUrl } from "./api";
 
 export default function SearchBar({placeholder}) {
@@ -44,12 +43,15 @@ export default function SearchBar({placeholder}) {
               value={query}
               onChange={(e) =>setQuery(e.target.value)}
               placeholder={placeholder}
-             className="  w-[388px] py-1 px-1 text-white placeholder:text-white placeholder:opacity-[49.79%] md:placeholder:text-lg focus:outline-none border-0 focus:border-b  focus:border-blue-500"
+              // dont hardcode the pixels..check later
+             className="  w-[388px]  py-1 px-1 text-white placeholder:text-white placeholder:opacity-[49.79%] md:placeholder:text-lg focus:outline-none border-0 focus:border-b  focus:border-blue-500"
              />
         </form>
       </div>
       <div className="text-white/80 my-4 ml-4 text-xl md:text-2xl">
-        <h2>Found {results.length} results for '{query}'</h2>
+        {results.length > 0 && (
+              <h2>Found {results.length} results for '{query}'</h2>
+        )}
       </div>
     {results.length > 0 && (
   <div className=" pt-4 mx-4 md:mx-[25px] grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-8 md:gap-x-8 grid gap-6"> 

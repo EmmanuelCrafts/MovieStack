@@ -2,6 +2,7 @@ import { buildUrl } from "./api";
 import { useQuery } from "@tanstack/react-query";
 import iconMovies from "../assets/icon-nav-movies.svg"
 import iconSeries from"../assets/icon-nav-tv-series.svg"
+import { Link } from "react-router-dom";
 
 const Trending = () => {
   const url = buildUrl('/trending/all/week');
@@ -21,7 +22,9 @@ const Trending = () => {
           <div className='mx-4 md:mx-[25px] flex gap-4   md:gap-6 overflow-x-scroll  scroll-smooth   no-scrollbar'>
              {data.results.map(item => (
               <div key={item.id} className=" mb-4 w-[240px] md:w-[470px] flex-shrink-0  ">
-                <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt={item.title || item.name} className=" w-[240px]  h-[140px] md:h-[230px] md:w-[470px] rounded-lg "/>
+                <Link to={`/details/${item.media_type}/${item.id}`}>
+                   <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt={item.title || item.name} className=" w-[240px]  h-[140px] md:h-[230px] md:w-[470px] rounded-lg "/>
+                </Link>
                 
                 <div className=" text-white/56 pt-1 "> 
                 {item.media_type === "movie" ? (
