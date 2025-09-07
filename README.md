@@ -22,3 +22,10 @@ Users can browse trending content, view details (Titles,Overview, Language), and
 - TailwindCSS (styling)
 - TMDb API (movie & TV data)
 - Netlify (deployment)
+
+## Challenges I Faced
+- I had to read a lot of documentation to understand React concepts, React Router, and API integration.  
+- Learning how to implement lazy loading and optimize images for faster loading took extra effort.  
+- Understanding how to manage state and props between components was a challenge at first.  
+- Styling with TailwindCSS required practice before I became comfortable.  
+- Deploying to Netlify was new to me, so I had to experiment before getting it right.
