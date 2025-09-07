@@ -4,7 +4,7 @@ import iconMovies from "../assets/icon-nav-movies.svg"
 import iconSeries from"../assets/icon-nav-tv-series.svg"
 import { buildUrl } from "./api";
 import { Link } from "react-router-dom";
-
+import Spinner from "./Spinner";
 
 
 export default function SearchBar({placeholder}) {
@@ -46,11 +46,7 @@ export default function SearchBar({placeholder}) {
   return (
     <div>
       {/* show spinner and if no results is found show an error */}
-      {isFetching && (
-      <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-10 w-10 border-blue-500 border-t-2 border-b-2"></div>
-      </div>
-    )}
+      {isFetching && <Spinner />}
 
    
       <div className=" flex items-center ml-4 mt-6 gap-4   w-[90%] md:w-[377px] md:mx-[25px]">

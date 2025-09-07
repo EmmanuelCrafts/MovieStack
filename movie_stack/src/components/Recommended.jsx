@@ -3,7 +3,7 @@ import { useQueries} from "@tanstack/react-query";
 import iconMovies from "../assets/icon-nav-movies.svg"
 import iconSeries from"../assets/icon-nav-tv-series.svg"
 import { Link } from "react-router-dom";
-
+import Spinner from "./Spinner";
 const Recommended = () => {
   const movieUrl = buildUrl('/movie/top_rated');
   const SeriesUrl = buildUrl('/tv/top_rated');
@@ -21,11 +21,7 @@ const Recommended = () => {
     
   }); 
 
-   if ((moviesQuery.isLoading || seriesQuery.isLoading) ) return (
-    <div className="flex items-center justify-center  h-screen">
-      <div className="animate-spin rounded-full h-10 w-10  border-blue-500 border-t-2 border-b-2 rounded-full"></div>
-    </div>
-  )
+   if ((moviesQuery.isLoading || seriesQuery.isLoading) ) return <Spinner />
   if (moviesQuery.error || seriesQuery.error) return <div>Error: {error.message}</div>;
 
     const moviesData = moviesQuery.data.results.map(item => ({ ...item, media_type: 'movie' }));

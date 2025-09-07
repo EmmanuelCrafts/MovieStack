@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import iconMovies from "../assets/icon-nav-movies.svg"
 import iconSeries from"../assets/icon-nav-tv-series.svg"
 import { Link } from "react-router-dom";
+import Spinner from "./Spinner";
 
 const Trending = () => {
   const url = buildUrl('/trending/all/week');
@@ -11,11 +12,7 @@ const Trending = () => {
     queryFn: () => fetch(url).then(res => res.json())
   }); 
 
-  if (isLoading) return (
-    <div className="flex items-center justify-center  h-screen">
-      <div className="animate-spin rounded-full h-10 w-10  border-blue-500 border-t-2 border-b-2 rounded-full"></div>
-    </div>
-  )
+  if (isLoading) return <Spinner />
   if (error) return <div className="text-white">Error: {error.message}</div>;
   
 

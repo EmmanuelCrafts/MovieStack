@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import Navbar from "../components/Navbar";
 import { useQuery } from "@tanstack/react-query";
 import { buildUrl } from "../components/api";
+import Spinner from "../components/Spinner";
 
 const DetailsPage = () => {
     const { mediaType, id} =useParams();
@@ -16,11 +17,7 @@ const DetailsPage = () => {
       },
     });
 
-    if (isLoading) return (
-    <div className="flex items-center justify-center  h-screen">
-      <div className="animate-spin rounded-full h-10 w-10 border-blue-500 border-t-2 border-b-2 rounded-full"></div>
-    </div>
-  )
+    if (isLoading) return <Spinner />
     if (error) return <p>Error: {error.message}</p>
   return (
     <div className="flex">

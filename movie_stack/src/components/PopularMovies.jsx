@@ -2,6 +2,7 @@ import { buildUrl } from "./api";
 import {  useQuery} from "@tanstack/react-query";
 import iconMovies from "../assets/icon-nav-movies.svg"
 import { Link } from "react-router-dom";
+import Spinner from "./Spinner";
 const PopularMovies = () => {
   const movieUrl = buildUrl('/movie/popular');
   
@@ -10,11 +11,7 @@ const PopularMovies = () => {
                 queryFn: () => fetch(movieUrl).then(res => res.json())   
           }); 
 
-   if (isLoading) return (
-    <div className="flex items-center justify-center  h-screen">
-      <div className="animate-spin rounded-full h-10 w-10  border-blue-500 border-t-2 border-b-2 rounded-full"></div>
-    </div>
-  )
+   if (isLoading) return <Spinner />
   if (error) return <div>Error: {error.message}</div>;
 
     const popular = data.results.map(item => ({ ...item, media_type: 'movie' }));
