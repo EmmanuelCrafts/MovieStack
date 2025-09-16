@@ -24,7 +24,16 @@ const Trending = () => {
              {data.results.map(item => (
               <div key={item.id} className=" mb-4 w-[240px] md:w-[470px] flex-shrink-0  ">
                 <Link to={`/details/${item.media_type}/${item.id}`}>
-                   <img src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt={item.title || item.name} className=" w-[240px]  h-[140px] md:h-[230px] md:w-[470px] rounded-lg "/>
+                   <img 
+                   srcSet={`
+                           https://image.tmdb.org/t/p/w300${item.backdrop_path} 300w,
+                           https://image.tmdb.org/t/p/w500${item.backdrop_path} 500w,
+                           https://image.tmdb.org/t/p/w780${item.backdrop_path} 780w
+                        `}
+                   sizes="(max-width: 768px) 240px, 470px"    
+                   src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} 
+                   alt={item.title || item.name} 
+                   className=" w-[240px]  h-[140px] md:h-[230px] md:w-[470px] rounded-lg "/>
                 </Link>
                 
                 <div className=" text-white/56 pt-1 "> 
