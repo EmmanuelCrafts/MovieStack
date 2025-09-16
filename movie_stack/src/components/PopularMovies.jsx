@@ -33,7 +33,7 @@ const PopularMovies = () => {
                      https://image.tmdb.org/t/p/w780${item.backdrop_path} 780w,
                   `}
                   sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw"
-                      src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt={item.title || item.name} className=" w-full h-auto rounded-lg "/>
+                      src={`https://image.tmdb.org/t/p/w300${item.backdrop_path}`} alt={item.title || item.name} className=" w-full h-auto rounded-lg "/>
                 </Link>
                 <div className=" text-white/56 pt-1 "> 
                 {item.media_type === "movie" ? (

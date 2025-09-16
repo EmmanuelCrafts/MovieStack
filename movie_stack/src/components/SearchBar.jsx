@@ -87,8 +87,8 @@ export default function SearchBar({placeholder}) {
                   sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw"
           src={
             item.backdrop_path 
-              ? `https://image.tmdb.org/t/p/w500${item.backdrop_path}`
-              : "https://dummyimage.com/500x281/09f/fff&text=No+Image"
+              ? `https://image.tmdb.org/t/p/w300${item.backdrop_path}`
+              : "https://dummyimage.com/300x281/09f/fff&text=No+Image"
             } 
           alt={item.title || item.name} 
           className="w-full h-auto text-white rounded-lg" 

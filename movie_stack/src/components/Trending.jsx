@@ -22,7 +22,7 @@ const Trending = () => {
         <h2 className=" text-white text-xl font-bold my-5  h-6 ml-4 md:mx-[25px]">Trending</h2>
           <div className='mx-4 md:mx-[25px] flex gap-4   md:gap-6 overflow-x-scroll  scroll-smooth   no-scrollbar'>
              {data.results.map(item => (
-              <div key={item.id} className=" mb-4 w-[240px] md:w-[470px] flex-shrink-0  ">
+              <div key={item.id} className=" mb-4 w-[240px] md:w-[300px] lg:w-[500px] flex-shrink-0  ">
                 <Link to={`/details/${item.media_type}/${item.id}`}>
                    <img 
                    srcSet={`
@@ -31,9 +31,9 @@ const Trending = () => {
                            https://image.tmdb.org/t/p/w780${item.backdrop_path} 780w
                         `}
                    sizes="(max-width: 768px) 240px, 470px"    
-                   src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} 
+                   src={`https://image.tmdb.org/t/p/w300${item.backdrop_path}`} 
                    alt={item.title || item.name} 
-                   className=" w-[240px]  h-[140px] md:h-[230px] md:w-[470px] rounded-lg "/>
+                   className=" w-[240px]  h-[135px] md:h-[169px] md:w-[300px] lg:w-[500px]  lg:h-[281px] rounded-lg "/>
                 </Link>
                 
                 <div className=" text-white/56 pt-1 "> 
