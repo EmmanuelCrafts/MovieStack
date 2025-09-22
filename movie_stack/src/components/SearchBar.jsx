@@ -11,8 +11,8 @@ export default function SearchBar({placeholder}) {
     const[query, setQuery] = useState('');
     const[results, setResults] = useState([]);
     const[error, setError] = useState(null);
-    const [isFetching, setIsFetching] = useState(false);
-    const [hasSearched, setHasSearched] = useState(false);
+    const[isFetching, setIsFetching] = useState(false);
+    const[hasSearched, setHasSearched] = useState(false);
 
     useEffect(() => {
       if (query === "") {
@@ -91,7 +91,7 @@ export default function SearchBar({placeholder}) {
               : "https://dummyimage.com/300x281/09f/fff&text=No+Image"
             } 
           alt={item.title || item.name} 
-          className="w-full h-auto text-white rounded-lg" 
+          className="w-full aspect-video text-white rounded-lg" 
         />
         </Link>
         

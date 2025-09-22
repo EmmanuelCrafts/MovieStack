@@ -23,7 +23,6 @@ const Recommended = () => {
 
    if ((moviesQuery.isLoading || seriesQuery.isLoading) ) return <Spinner />
   if (moviesQuery.error || seriesQuery.error) return <div>Error: {error.message}</div>;
-
     const moviesData = moviesQuery.data.results.map(item => ({ ...item, media_type: 'movie' }));
     const seriesData = seriesQuery.data.results.map(item => ({ ...item, media_type: 'tv' }));
 
@@ -34,7 +33,7 @@ const Recommended = () => {
     <div>
         
         <h2 className=" text-white text-xl font-bold my-4 h-6 ml-4 mb-5 md:mx-[25px]">Recommended for you</h2>
-          <div className='mx-4 md:mx-[25px] grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 lg:gap-x-8 md:gap-x-8 grid  gap-6 '> 
+          <div className='mx-4 md:mx-[25px] grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 md:gap-x-4 grid  gap-3 '> 
              {shuffled.map(item => (
               <div key={item.id} className=" mb-4  ">
                <Link to={`/details/${item.media_type}/${item.id}`}>
@@ -46,7 +45,7 @@ const Recommended = () => {
                   `}
                   sizes="(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw"
                 src={`https://image.tmdb.org/t/p/w300${item.backdrop_path}`} 
-                alt={item.title || item.name} className=" w-full h-auto rounded-lg "/>
+                alt={item.title || item.name} className=" w-full aspect-video rounded-lg "/>
                 </Link>
                 <div className=" text-white/56 pt-1 "> 
                 {item.media_type === "movie" ? (
