@@ -5,7 +5,7 @@ Users can browse trending content, view details (Titles,Overview, Language), and
 
 ---
 ##  Live Demo
-Check out the live version here: [Movie Stack on Netlify](https://68bdfc17a78afcd571a3b7e2--movie-stack1.netlify.app/)
+Check out the live version here: [Movie Stack on Netlify](https://movie-stack1.netlify.app/)
 
 
 ## Features
